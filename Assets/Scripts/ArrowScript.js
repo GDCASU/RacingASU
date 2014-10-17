@@ -9,6 +9,7 @@ var nearColor : Color = Color(255.0f/255.0f, 215.0f/255.0f, 0, 1); // gold
 var distance;
 function Start()
 {
+	PlayerPrefs.SetString("EndLoc", "Nipple");
     if(destination == null)
     {
         destination = GameObject.Find(PlayerPrefs.GetString("EndLoc"));

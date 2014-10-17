@@ -8,14 +8,27 @@ using System.Collections;
 public class Primitives : MonoBehaviour
 {
 	private static float Pi = 3.14159f;
-	public float segmentRadius = 1f;
+	public float segmentRadiusA = 1f;
+	public float segmentRadiusB = 1f;
 	public float tubeRadius = 0.1f;
 	public int segments = 32;
 	public int tubes = 12;
 
+
 	void Start()
 	{
 		Torus();
+	}
+
+	//Function: change radius
+	//Parameters: 2 floats, radiusA and RadiusB
+	//Returns: none
+	//Desciption: changes the radius of the Torus
+	public void changeRadius(float radiusA, float radiusB)
+	{
+		segmentRadiusA = radiusA;
+		segmentRadiusB = radiusB;
+		Torus ();
 	}
 
 	public void Torus()
@@ -55,8 +68,8 @@ public class Primitives : MonoBehaviour
 			for (int j = 0; j < numTubes; j++)
 			{
 				// Calculate X, Y, Z coordinates.
-				x = (segmentRadius + tubeRadius * Mathf.Cos(j * tubeSize)) * Mathf.Cos(i * segmentSize);
-				y = (segmentRadius + tubeRadius * Mathf.Cos(j * tubeSize)) * Mathf.Sin(i * segmentSize);
+				x = (segmentRadiusA + tubeRadius * Mathf.Cos(j * tubeSize)) * Mathf.Cos(i * segmentSize);
+				y = (segmentRadiusB + tubeRadius * Mathf.Cos(j * tubeSize)) * Mathf.Sin(i * segmentSize);
 				z = tubeRadius * Mathf.Sin(j * tubeSize);
 
 				// Add the vertex to the tubeList

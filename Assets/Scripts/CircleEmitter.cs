@@ -4,6 +4,8 @@ using System.Collections;
 // custom particle system
 public class CircleEmitter : MonoBehaviour
 {
+	private Primitives p;
+	private GameObject destination;
 	public GameObject Circle;
 	public int numCircles = 5; // number of circles at any given time
 	public float interval = 1.0f; // rate at which circle spawns (1 second default)
@@ -16,9 +18,29 @@ public class CircleEmitter : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		//destination = GameObject.Find(PlayerPrefs.GetString("EndLoc"));
+		//Tupple<float,float> radi = destination.getSize() This is not an implemented function need to find a way to get the size of the building
+		//changeRadius(radi.item1, radi.item2);
 		Circles = new ArrayList ();
 	}
-	
+
+	//Function: Change Radius
+	//Parameters: 1 float - radius for a circular end zone
+	//			  2 float - radius for an eliptial end zone
+	//Returns: None
+	//Description: changes the radius of the end zone based on entered float(s)
+	void changeRadius(float newRadius)
+	{
+		changeRadius (newRadius, newRadius);
+	}
+
+
+	void changeRadius(float newRadiusA, float newRadiusB)
+	{
+		p = Circle.GetComponent<Primitives> ();
+		p.changeRadius (newRadiusA, newRadiusB);
+	}
+
 	// Update is called once per frame
 	void Update ()
 	{
