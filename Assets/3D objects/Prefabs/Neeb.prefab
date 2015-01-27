@@ -42,7 +42,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 111: {fileID: 11100000}
   m_Layer: 0
-  m_Name: NEEB
+  m_Name: Neeb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
